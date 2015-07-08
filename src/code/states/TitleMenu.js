@@ -42,14 +42,14 @@ TitleMenu.prototype = {
         this.DrawMenu();
         
         // Assign the key strokes
-        Key1 = this.game.input.keyboard.addKey(Phaser.Keyboard.UP);
-        Key1.onDown.add(this.MenuItemUp, this);
+        this.Key1 = this.game.input.keyboard.addKey(Phaser.Keyboard.UP);
+        this.Key1.onDown.add(this.MenuItemUp, this);
         
-        Key2 = this.game.input.keyboard.addKey(Phaser.Keyboard.DOWN);
-        Key2.onDown.add(this.MenuItemDown, this);
+        this.Key2 = this.game.input.keyboard.addKey(Phaser.Keyboard.DOWN);
+        this.Key2.onDown.add(this.MenuItemDown, this);
         
-        Key3 = this.game.input.keyboard.addKey(Phaser.Keyboard.ENTER);
-        Key3.onDown.add(this.MenuItemSelect, this);
+        this.Key3 = this.game.input.keyboard.addKey(Phaser.Keyboard.ENTER);
+        this.Key3.onDown.add(this.MenuItemSelect, this);
         
         
         
@@ -138,15 +138,15 @@ TitleMenu.prototype = {
     // Draw the Menu (called when something has changed)
     DrawInitial: function()
     {
-            this.StartButton = this.game.add.sprite(this.world.centerX-50, this.world.centerY+125, "startbuttonactive");
+            this.StartButton = this.game.add.sprite(350, 425, "startbuttonactive");
             this.StartButton.inputEnabled = true;
             this.StartButton.events.onInputOver.add(this.SetStartActive, this);
             this.StartButton.events.onInputDown.add(this.SetState, this);
-            this.AboutButton = this.game.add.sprite(this.world.centerX-50, this.world.centerY+185, "aboutbutton");
+            this.AboutButton = this.game.add.sprite(350, 485, "aboutbutton");
             this.AboutButton.inputEnabled = true;
             this.AboutButton.events.onInputDown.add(this.SetState, this);
             this.AboutButton.events.onInputOver.add(this.SetAboutActive, this);
-            this.OptionButton = this.game.add.sprite(this.world.centerX-50, this.world.centerY+245, "optionsbutton");
+            this.OptionButton = this.game.add.sprite(350, 545, "optionsbutton");
             this.OptionButton.inputEnabled = true;
             this.OptionButton.events.onInputOver.add(this.SetOptionActive, this);
             this.OptionButton.events.onInputDown.add(this.SetState, this);
@@ -156,21 +156,21 @@ TitleMenu.prototype = {
     {
         if(MenuItem == 1)
         {
-            this.StartButton = this.game.add.sprite(this.world.centerX-50, this.world.centerY+125, "startbuttonactive");
-            this.AboutButton = this.game.add.sprite(this.world.centerX-50, this.world.centerY+185, "aboutbutton");
-            this.OptionButton = this.game.add.sprite(this.world.centerX-50, this.world.centerY+245, "optionsbutton");
+            this.StartButton = this.game.add.sprite(350, 425, "startbuttonactive");
+            this.AboutButton = this.game.add.sprite(350, 485, "aboutbutton");
+            this.OptionButton = this.game.add.sprite(350, 545, "optionsbutton");
         }
         else if (MenuItem == 2)
         {
-            this.StartButton = this.game.add.sprite(this.world.centerX-50, this.world.centerY+125, "startbutton");
-            this.AboutButton = this.game.add.sprite(this.world.centerX-50, this.world.centerY+185, "aboutbuttonactive");
-            this.OptionButton = this.game.add.sprite(this.world.centerX-50, this.world.centerY+245, "optionsbutton");
+            this.StartButton = this.game.add.sprite(350, 425, "startbutton");
+            this.AboutButton = this.game.add.sprite(350, 485, "aboutbuttonactive");
+            this.OptionButton = this.game.add.sprite(350, 545, "optionsbutton");
         }
         else
         {
-            this.StartButton = this.game.add.sprite(this.world.centerX-50, this.world.centerY+125, "startbutton");
-            this.AboutButton = this.game.add.sprite(this.world.centerX-50, this.world.centerY+185, "aboutbutton");
-            this.OptionButton = this.game.add.sprite(this.world.centerX-50, this.world.centerY+245, "optionsbuttonactive");
+            this.StartButton = this.game.add.sprite(350, 425, "startbutton");
+            this.AboutButton = this.game.add.sprite(350, 485, "aboutbutton");
+            this.OptionButton = this.game.add.sprite(350, 545, "optionsbuttonactive");
         }
             
     },

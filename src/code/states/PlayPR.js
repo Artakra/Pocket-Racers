@@ -4,6 +4,7 @@ PlayPR.prototype = {
     
 	preload: function()
     {
+        var Key1;
         var map;
         var layer;
         var cursors;
@@ -16,6 +17,7 @@ PlayPR.prototype = {
         
         //Stop music playing
         PocketRacers.MenuMusic.fadeOut(2000);
+        PocketRacers.menuMusicPlaying = false;
 	},
     
   	create: function()
@@ -59,10 +61,19 @@ PlayPR.prototype = {
         // ship.body.collideWorldBounds = false;
 
         this.cursors = this.game.input.keyboard.createCursorKeys();
+        
+         // Set up key to return to main menu
+            this.Key1 = this.game.input.keyboard.addKey(Phaser.Keyboard.ESC);
+            this.Key1.onDown.add(this.MainMenu,this);
        
         
 	},
-        
+    
+    MainMenu: function()
+    {
+        this.game.state.start("TitleMenu");
+    },
+
     update: function()
     {
         if (this.cursors.left.isDown)
