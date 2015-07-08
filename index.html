@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+	<head>
+    		<script src="src/code/phaser.min.js"></script>
+            <script src="src/code/states/Preload.js"></script>
+    		<script src="src/code/states/TitleMenu.js"></script>
+            <script src="src/code/states/InfoScreen.js"></script>
+            <script src="src/code/states/Options.js"></script>
+    		<style>
+    			body{margin:0}
+    		</style>
+		<script>
+		                 
+				    var PocketRacers = new Phaser.Game(800, 600, Phaser.AUTO, 'PocketRacers', { preload: preload, create: create, update: update, render: render });
+                
+                    //PocketRacers repload fucntion
+                    function preload() 
+                    {
+                        PocketRacers.state.add("Preload",Preload);
+				        PocketRacers.state.add("TitleMenu",TitleMenu);
+                        PocketRacers.state.add("InfoScreen",InfoScreen);
+                        PocketRacers.state.add("Options",Options);
+				        
+                        
+                        PocketRacers.load.audio("MenuMusic","src/music/TitleMusic.ogg");
+                       
+                    }   
+
+                    // Pocket Racers Create
+                    function create() 
+                    {
+                        PocketRacers.MenuMusic = PocketRacers.add.audio("MenuMusic");
+                        PocketRacers.MenuMusic.loop = true;
+                        PocketRacers.MenuMusic.volume = 1;
+                        PocketRacers.menuMusicPlaying = false;
+                    }
+
+                    // Pocket Racers Update
+                    function update() 
+                    {
+                        
+                    }
+            
+                    // Pocket Racers Redern
+                    function render() 
+                    {
+                        PocketRacers.state.start("Preload");
+                    }
+
+		</script>
+    </head>
+    <body>
+    </body>
+</html>
