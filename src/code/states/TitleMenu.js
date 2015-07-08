@@ -12,6 +12,8 @@ TitleMenu.prototype = {
     // Preload function
     preload: function()
     {
+        
+        
         this.game.load.image("menu","src/imgs/titlemenu.jpg");
         this.game.load.audio("TitleMusic","src/music/TitleMusic.ogg");
         this.game.load.image("startbutton","src/imgs/startbutton.jpg");
@@ -200,7 +202,7 @@ TitleMenu.prototype = {
     playMusic: function () 
     {
         // If music is already playing (i.e User had returned to the TitleMenu)
-        if(PocketRacers.menuMusicPlaying == true)
+        if(PocketRacers.menuMusicPlaying)
         {
             // Do Nothing
             return;
@@ -208,6 +210,7 @@ TitleMenu.prototype = {
         else 
         {
             // If not already plaing, play the music and set playing flag to true
+            PocketRacers.MenuMusic.volume = 1;
             PocketRacers.MenuMusic.play();
             PocketRacers.menuMusicPlaying = true;
         }
