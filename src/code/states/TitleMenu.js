@@ -137,16 +137,19 @@ TitleMenu.prototype = {
     
     // Draw the Menu (called when something has changed)
     DrawInitial: function()
-    {
-            this.StartButton = this.game.add.sprite(350, 425, "startbuttonactive");
+    {   
+            console.log(this.game.width/2);
+            console.log(this.game.height/2);
+        
+            this.StartButton = this.game.add.sprite(this.game.width/2-50, this.game.height/2+185, "startbuttonactive");
             this.StartButton.inputEnabled = true;
             this.StartButton.events.onInputOver.add(this.SetStartActive, this);
             this.StartButton.events.onInputDown.add(this.SetState, this);
-            this.AboutButton = this.game.add.sprite(350, 485, "aboutbutton");
+            this.AboutButton = this.game.add.sprite(this.game.width/2-50, this.game.height/2+185, "aboutbutton");
             this.AboutButton.inputEnabled = true;
             this.AboutButton.events.onInputDown.add(this.SetState, this);
             this.AboutButton.events.onInputOver.add(this.SetAboutActive, this);
-            this.OptionButton = this.game.add.sprite(350, 545, "optionsbutton");
+            this.OptionButton = this.game.add.sprite(this.game.width/2-50, this.game.height/2+245, "optionsbutton");
             this.OptionButton.inputEnabled = true;
             this.OptionButton.events.onInputOver.add(this.SetOptionActive, this);
             this.OptionButton.events.onInputDown.add(this.SetState, this);
@@ -156,21 +159,21 @@ TitleMenu.prototype = {
     {
         if(MenuItem == 1)
         {
-            this.StartButton = this.game.add.sprite(350, 425, "startbuttonactive");
-            this.AboutButton = this.game.add.sprite(350, 485, "aboutbutton");
-            this.OptionButton = this.game.add.sprite(350, 545, "optionsbutton");
+            this.StartButton = this.game.add.sprite(this.game.width/2-50, this.game.height/2+125, "startbuttonactive");
+            this.AboutButton = this.game.add.sprite(this.game.width/2-50, this.game.height/2+185, "aboutbutton");
+            this.OptionButton = this.game.add.sprite(this.game.width/2-50, this.game.height/2+245, "optionsbutton");
         }
         else if (MenuItem == 2)
         {
-            this.StartButton = this.game.add.sprite(350, 425, "startbutton");
-            this.AboutButton = this.game.add.sprite(350, 485, "aboutbuttonactive");
-            this.OptionButton = this.game.add.sprite(350, 545, "optionsbutton");
+            this.StartButton = this.game.add.sprite(this.game.width/2-50, this.game.height/2+125, "startbutton");
+            this.AboutButton = this.game.add.sprite(this.game.width/2-50, this.game.height/2+185, "aboutbuttonactive");
+            this.OptionButton = this.game.add.sprite(this.game.width/2-50, this.game.height/2+245, "optionsbutton");
         }
         else
         {
-            this.StartButton = this.game.add.sprite(350, 425, "startbutton");
-            this.AboutButton = this.game.add.sprite(350, 485, "aboutbutton");
-            this.OptionButton = this.game.add.sprite(350, 545, "optionsbuttonactive");
+            this.StartButton = this.game.add.sprite(this.game.width/2-50, this.game.height/2+125, "startbutton");
+            this.AboutButton = this.game.add.sprite(this.game.width/2-50, this.game.height/2+185, "aboutbutton");
+            this.OptionButton = this.game.add.sprite(this.game.width/2-50, this.game.height/2+245, "optionsbuttonactive");
         }
             
     },
