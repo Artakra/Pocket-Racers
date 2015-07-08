@@ -28,6 +28,7 @@ TitleMenu.prototype =
     {
         
         this.playMusic();
+        
         console.log("Call Create");
         
         // Int to determine selected menu item
