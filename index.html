@@ -6,6 +6,7 @@
     		<script src="src/code/states/TitleMenu.js"></script>
             <script src="src/code/states/InfoScreen.js"></script>
             <script src="src/code/states/Options.js"></script>
+            <script src="src/code/states/PlayPR.js"></script>
     		<style>
     			body{margin:0}
     		</style>
@@ -16,10 +17,12 @@
                     //PocketRacers repload fucntion
                     function preload() 
                     {
+                        PocketRacers.state.add("PlayPR",PlayPR);
                         PocketRacers.state.add("Preload",Preload);
 				        PocketRacers.state.add("TitleMenu",TitleMenu);
                         PocketRacers.state.add("InfoScreen",InfoScreen);
                         PocketRacers.state.add("Options",Options);
+                        
 				        
                         
                         PocketRacers.load.audio("MenuMusic","src/music/TitleMusic.ogg");
