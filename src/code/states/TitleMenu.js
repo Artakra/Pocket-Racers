@@ -139,9 +139,7 @@ TitleMenu.prototype = {
     
     // Draw the Menu (called when something has changed)
     DrawInitial: function()
-    {   
-            console.log(this.game.width/2);
-            console.log(this.game.height/2);
+    { 
         
             this.StartButton = this.game.add.sprite(this.game.width/2-50, this.game.height/2+185, "startbuttonactive");
             this.StartButton.inputEnabled = true;
