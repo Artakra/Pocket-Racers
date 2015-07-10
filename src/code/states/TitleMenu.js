@@ -44,8 +44,8 @@ TitleMenu.prototype = {
         this.DrawMenu();
         
         // Assign the key strokes
-        this.Key1 = this.game.input.keyboard.addKey(Phaser.Keyboard.UP);
-        this.Key1.onDown.add(this.MenuItemUp, this);
+        this.game.input.keyboard.addKey(Phaser.Keyboard.UP).onDown.add(this.MenuItemUp, this);
+        //this.Key1.onDown.add(this.MenuItemUp, this);
         
         this.Key2 = this.game.input.keyboard.addKey(Phaser.Keyboard.DOWN);
         this.Key2.onDown.add(this.MenuItemDown, this);

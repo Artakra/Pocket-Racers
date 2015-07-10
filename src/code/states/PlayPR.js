@@ -16,8 +16,9 @@ PlayPR.prototype = {
         var minutes;
         var currenttimer;
         var timerstyle;
-        this.game.load.tilemap('map','src/imgs/sandymap.json', null, Phaser.Tilemap.TILED_JSON);
-        this.game.load.image('SandyTiles', 'src/imgs/sandymap.png');
+        
+        this.game.load.tilemap('ChaosCrossingCol','src/imgs/ChaosCrossingCollisions.json', null, Phaser.Tilemap.TILED_JSON);
+        this.game.load.image('ChaosCrossing', 'src/imgs/ChaosCrossing.png');
         this.game.load.image('walls_1x2', 'src/imgs/walls_1x2.png');
         this.game.load.image('tiles2', 'src/imgs/tiles2.png');
         this.game.load.image('car', 'src/imgs/car2.png');
@@ -39,29 +40,31 @@ PlayPR.prototype = {
         this.game.physics.startSystem(Phaser.Physics.P2JS);
         this.game.stage.backgroundColor = '#2d2d2d';
 
-        this.map = this.game.add.tilemap('map');
+        this.map = this.game.add.tilemap('ChaosCrossingCol');
 
-        this.map.addTilesetImage('SandyTiles','SandyTiles');
+        this.map.addTilesetImage('ChaosCrossing');
         //this.map.addTilesetImage('walls_1x2');
         //this.map.addTilesetImage('tiles2');
     
         this.layer = this.map.createLayer('Tile Layer 1');
-
+        this.game.physics.p2.convertTilemap(this.map, this.layer);
+        this.game.physics.p2.convertCollisionObjects(this.map,"Collision");
         this.layer.resizeWorld();
 
         //  Set the tiles for collision.
         //  Do this BEFORE generating the p2 bodies below.
-        this.map.setCollisionBetween(1, 12);
-        this.map.setCollision(331);
+        //this.map.setCollisionBetween(1, 12);
+        //this.map.setCollision(331);
 
         //  Convert the tilemap layer into bodies. Only tiles that collide (see above) are created.
         //  This call returns an array of body objects which you can perform addition actions on if
         //  required. There is also a parameter to control optimising the map build.
         this.game.physics.p2.convertTilemap(this.map, this.layer);
 
-        this.car = this.game.add.sprite(200, 500, 'car');
+        this.car = this.game.add.sprite(0, 0, 'car');
+        this.car.anchor.setTo(0.5, 0.85);
         this.game.physics.p2.enable(this.car);
-
+        this.game.physics.p2.friction = 1000;
         this.game.camera.follow(this.car);
 
         //  By default the car will collide with the World bounds,
@@ -195,12 +198,20 @@ PlayPR.prototype = {
 
         if (this.cursors.up.isDown)
         {
-            this.car.body.thrust(100);
+            this.car.body.thrust(50);
         }
         else if (this.cursors.down.isDown)
         {
-            this.car.body.reverse(100);
+            this.car.body.reverse(50);
         }
+        
+        if (this.cursors.up.isUp && this.cursors.down.isUp)
+        {
+                console.log("slowing");
+            this.car.body.thrust = this.car.body.thrust - 20;
+        }
+        
+        
         
 
         
